@@ -30,10 +30,6 @@ class Scene:
     def __init__(self) -> None:
         self.objects:List[Object] = []
         self.add_sample_object("cube")
-        # vertices, edges = mock_data_cube()
-        # obj = Object(vertices, edges, "Cube")
-        # self.objects.append(obj)
-        # event_manager.register(Events.ON_ADD_SAMPLE_OBJECT, self.add_sample_object)
 
     
     def add_sample_object(self, object_type:str):

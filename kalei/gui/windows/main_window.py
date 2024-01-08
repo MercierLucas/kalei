@@ -15,7 +15,7 @@ class MainWindow:
         self.config = config
 
         dpg.create_context()
-        dpg.create_viewport(title='3D Viewer', width=total_width, height=h+50)
+        dpg.create_viewport(title='Kalei', width=total_width, height=h+50)
         dpg.setup_dearpygui()
 
     def setup_window(self):
