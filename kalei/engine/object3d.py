@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class Object:
     def __init__(self, vertices:np.ndarray, edges, name:str=None, world_position=None) -> None:
         self.name = name
