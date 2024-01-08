@@ -13,6 +13,8 @@ class Events(Enum):
     # KEYS-RELATED
     ON_MOVE_CAMERA=20
 
+    # DRAW
+    ON_SCENE_READY_TO_DRAW=30
 
 
 class EventManager:

@@ -1,8 +1,8 @@
 import numpy as np
 
-from src.transforms import translate
+from kalei.engine.transforms import translate
 
-from src.events import event_manager, Events
+from kalei.events import event_manager, Events
 
 
 class Camera:

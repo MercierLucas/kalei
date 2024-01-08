@@ -2,12 +2,10 @@ import cv2
 import numpy as np
 from scipy.spatial.transform import Rotation
 
-from src.camera import Camera
-from src.scene import Scene
-from src.enums import Colors
-from src.transforms import rotate_x, rotate_y
-from src.object3d import Object
-from src.events import event_manager, Events
+from kalei.engine import Camera, Scene, Object
+from kalei.engine.transforms import rotate_x, rotate_y
+from kalei.events import event_manager, Events
+from kalei.enums import Colors
 
 
 
@@ -51,7 +49,7 @@ class OpenCVRenderer:
         obj.transform_matrix[:3, :3] = rotmat.as_matrix().T
 
         x, y, z = Rotation.from_matrix(rotmat.as_matrix()).as_euler("xyz", degrees=True)
-        print(np.rad2deg([x, y, z]))
+        # print(np.rad2deg([x, y, z]))
 
         new_points = np.zeros_like(obj.vertices)
         for idx, p in enumerate(obj.vertices):
@@ -79,7 +77,7 @@ class OpenCVRenderer:
             objects[obj_name] = vertices
 
             proj_points = self.camera.get_projection(points)
-            local_axis = self.camera.get_projection(local_axis.T)
+            local_axis = self.camera.get_projection(local_axis)
 
             # Draw axis
             p1, p2, p3, origin = local_axis

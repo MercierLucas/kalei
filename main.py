@@ -2,10 +2,10 @@ import cv2
 import time
 import numpy as np
 import glm
-from src.enums import Colors
+from kalei.enums import Colors
 from data import mock_data, mock_data_cube2
 
-from src.app import App
+from kalei.app import App
 
 LOGTIME = False
 

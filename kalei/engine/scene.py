@@ -1,8 +1,8 @@
 import numpy as np
 from typing import List
 
-from src.object3d import Object
-from src.events import event_manager, Events
+from kalei.engine.object3d import Object
+from kalei.events import event_manager, Events
 
 
 def mock_data_cube():
@@ -29,18 +29,20 @@ def mock_data_cube():
 class Scene:
     def __init__(self) -> None:
         self.objects:List[Object] = []
-        # self.add_sample_object("cube")
-        vertices, edges = mock_data_cube()
-        obj = Object(vertices, edges, "Cube")
-        self.objects.append(obj)
-        event_manager.register(Events.ON_ADD_SAMPLE_OBJECT, self.add_sample_object)
+        self.add_sample_object("cube")
+        # vertices, edges = mock_data_cube()
+        # obj = Object(vertices, edges, "Cube")
+        # self.objects.append(obj)
+        # event_manager.register(Events.ON_ADD_SAMPLE_OBJECT, self.add_sample_object)
 
     
     def add_sample_object(self, object_type:str):
         if object_type == "cube":
+            name = f"Cube_{len(self.objects)}"
             vertices, edges = mock_data_cube()
-            wp = np.random.random(3) > 1
-            obj = Object(vertices, edges, "Cube")
+            wp = np.random.randint(low=-3, high=3, size=4)
+            wp[-1] = 1
+            obj = Object(vertices, edges, name, world_position=wp)
             self.objects.append(obj)
             event_manager.trigger(Events.ON_OBJECT_ADDED_TO_SCENE, self.objects)
 

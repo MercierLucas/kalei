@@ -1,6 +1,13 @@
 import numpy as np
 
 
+
+def apply_transforms(points, mat):
+    new_points = np.zeros_like(obj.vertices)
+    for idx, p in enumerate(obj.vertices):
+        p = obj.transform_matrix @ p
+        new_points[idx] = p
+
 # @timer
 def translate(point, tx, ty, tz):
     mat = np.eye(4)

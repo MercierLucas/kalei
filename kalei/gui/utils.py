@@ -2,7 +2,7 @@ import numpy as np
 
 
 def frame_to_dpg(frame):
-    frame = np.flip(frame, 2)  # BGR to RGB
+    # frame = np.flip(frame, 2)  # BGR to RGB
     frame = frame.ravel()  # flatten camera data to a 1 d stricture
     frame = np.asfarray(frame, dtype='f')  # change data type to 32bit floats
     data = np.true_divide(frame, 255.0)  # normalize image data to prepare for GPU
